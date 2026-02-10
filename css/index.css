@@ -1,20 +1,50 @@
-.col-1{
-    flex: 1 calc(100/12); 
+.container {
+    max-width: 1200px; /* Limitamos el ancho para que no se estire infinito en pantallas pro */
+    margin: 0 auto;
+    padding: 20px;
 }
 
-
-/* Ordinadors */
-@media (max-width: 1440px){
-   
+.row {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px; /* Espacio entre las columnas */
 }
 
-/* Tablet */
+/* --- SISTEMA DE COLUMNAS --- */
 
-@media (max-width: 1024px){
+/* Por defecto (Móviles): Cualquier cosa que empiece por "col-" ocupa las 12 columnas */
+[class^="col-"] {
+    grid-column: span 12;
 }
 
-/* Mobils */
-@media (max-width: 600px){
+/* Tablets (A partir de 601px) y Escritorio */
+@media (min-width: 601px) {
+    .col-1  { grid-column: span 1; }
+    .col-2  { grid-column: span 2; }
+    .col-3  { grid-column: span 3; }
+    .col-4  { grid-column: span 4; }
+    .col-6  { grid-column: span 6; }
+    .col-8  { grid-column: span 8; }
+    .col-12 { grid-column: span 12; }
+}
 
-} 
+/* --- ESTILOS VISUALES (Para que se vea bien) --- */
+.card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    background: #fdfdfd;
+}
 
+.fake-img img {
+    width: 100%;
+    height: auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px;
+    background: #820013;
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+}
